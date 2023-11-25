@@ -26,5 +26,10 @@ module.exports = {
 				parser: '@typescript-eslint/parser'
 			}
 		}
-	]
+	],
+	globals: {
+		$state: true,
+		$effect: true,
+		$derived: true
+	}
 };
