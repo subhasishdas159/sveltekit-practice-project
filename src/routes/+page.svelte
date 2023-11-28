@@ -1,16 +1,30 @@
 <script lang="ts">
+	import { afterNavigate, beforeNavigate, goto } from '$app/navigation';
+
 	type Todo = {
 		id: string;
 		text: string;
 		done: boolean;
 	};
 
-	type Filter = 'all' | 'active | "completed';
+	type Filter = 'all' | 'active' | 'completed';
 
 	let todos = $state<Todo[]>([]);
 	let todosCount = $state<number>(0);
 	let filter = $state<Filter>('all');
-	let filteredTodos = $derived(
+	// const filteredTodos = () => {
+	// 	const filteredTodosList = todos.filter((item) => {
+	// 		if (filter === 'completed') {
+	// 			return item.done;
+	// 		} else if (filter === 'active') {
+	// 			return !item.done;
+	// 		}
+	// 		return true;
+	// 	});
+
+	// 	return filteredTodosList;
+	// };
+	const filteredTodos = $derived(
 		todos.filter((item) => {
 			if (filter === 'completed') {
 				return item.done;
@@ -20,6 +34,10 @@
 			return true;
 		})
 	);
+
+	$effect(() => {
+		console.log('hello');
+	});
 
 	const addTodo = (ev: KeyboardEvent) => {
 		if (ev.key !== 'Enter') return;
@@ -48,8 +66,19 @@
 	$effect(() => {
 		todosCount = todos.length;
 	});
+
+	beforeNavigate((navigation) => {
+		console.log('before', navigation);
+	});
+
+	afterNavigate((navigation) => {
+		console.log('after', navigation);
+	});
 </script>
 
+<button class="border font-bold rounded-full px-4 py-2" onclick={() => goto('/product/1234')}
+	>goto product</button
+>
 <div class="max-w-7xl mx-auto">
 	<div class="container mx-auto px-4">
 		<div class="max-w-md py-8">
@@ -80,7 +109,7 @@
 						type="checkbox"
 						value={todo.done}
 					/>
-					<input type="text" value={todo.text} />
+					<input id="todo" type="text" value={todo.text} />
 				</div>
 			{/each}
 		</div>

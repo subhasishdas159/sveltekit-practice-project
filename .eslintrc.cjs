@@ -13,6 +13,9 @@ module.exports = {
 		ecmaVersion: 2020,
 		extraFileExtensions: ['.svelte']
 	},
+	rules: {
+		'svelte/valid-compile': 'off'
+	},
 	env: {
 		browser: true,
 		es2017: true,
