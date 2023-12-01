@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { afterNavigate, beforeNavigate, goto } from '$app/navigation';
+	import { afterNavigate, beforeNavigate, goto, preloadCode, preloadData } from '$app/navigation';
 
 	type Todo = {
 		id: string;
@@ -76,8 +76,17 @@
 	});
 </script>
 
-<button class="border font-bold rounded-full px-4 py-2" onclick={() => goto('/product/1234')}
-	>goto product</button
+<button
+	class="border font-bold rounded-full px-4 py-2"
+	onmouseover={() => {
+		preloadCode('/product/1234');
+	}}
+	onfocus={() => {
+		preloadData('/product/1234');
+	}}
+	onclick={() => {
+		goto('/product/1234');
+	}}>goto product</button
 >
 <div class="max-w-7xl mx-auto">
 	<div class="container mx-auto px-4">
