@@ -1,42 +1,44 @@
 {
-	"name": "my-app",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev --port 3000",
-		"build": "vite build",
-		"preview": "vite preview",
-		"test": "npm run test:integration && npm run test:unit",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write .",
-		"test:integration": "playwright test",
-		"test:unit": "vitest"
-	},
-	"devDependencies": {
-		"@playwright/test": "1.41.0-alpha-nov-26-2023",
-		"@sveltejs/adapter-auto": "^2.1.1",
-		"@sveltejs/kit": "^1.27.6",
-		"@typescript-eslint/eslint-plugin": "7.0.0-alpha.0",
-		"@typescript-eslint/parser": "7.0.0-alpha.0",
-		"autoprefixer": "^10.4.16",
-		"eslint": "^8.54.0",
-		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-svelte": "2.36.0-next.2",
-		"postcss": "^8.4.31",
-		"prettier": "^3.1.0",
-		"prettier-plugin-svelte": "^3.1.2",
-		"svelte": "5.0.0-next.13",
-		"svelte-check": "^3.6.2",
-		"tailwindcss": "^3.3.5",
-		"tslib": "^2.6.2",
-		"typescript": "5.4.0-dev.20231126",
-		"vite": "^5.0.2",
-		"vitest": "1.0.0-beta.5"
-	},
-	"type": "module",
-	"dependencies": {
-		"svelte-motion": "^0.11.5"
-	}
+  "name": "my-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "npm run test:integration && npm run test:unit",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write .",
+    "test:integration": "playwright test",
+    "test:unit": "vitest",
+    "serve-json": "json-server --watch db.json --port 4000"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.41.0-alpha-nov-26-2023",
+    "@sveltejs/adapter-auto": "^2.1.1",
+    "@sveltejs/kit": "^1.27.6",
+    "@typescript-eslint/eslint-plugin": "7.0.0-alpha.0",
+    "@typescript-eslint/parser": "7.0.0-alpha.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-svelte": "2.36.0-next.2",
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.0",
+    "prettier-plugin-svelte": "^3.1.2",
+    "svelte": "5.0.0-next.15",
+    "svelte-check": "^3.6.2",
+    "tailwindcss": "^3.3.5",
+    "tslib": "^2.6.2",
+    "typescript": "5.4.0-dev.20231126",
+    "vite": "^5.0.2",
+    "vitest": "1.0.0-beta.5"
+  },
+  "type": "module",
+  "dependencies": {
+    "json-server": "^0.17.4",
+    "svelte-motion": "^0.11.5"
+  }
 }
