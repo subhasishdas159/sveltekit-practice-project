@@ -16,7 +16,9 @@
 <button onclick={() => invalidate('fetchAllBooks')}>refresh</button>
 
 {#each data.books as book (book.id)}
-	{book.text}
+	<!-- because of this anchor tag sveltekit is able to crawl the dynamic pages and thus  -->
+	<!-- this is how it knows which pages to prerender -->
+	<a href="/books/{book.id}">{book.text}</a>
 	<br />
 {/each}
 

@@ -16,10 +16,17 @@ export const load: PageServerLoad = async ({ fetch, params, url, route, parent }
 	}
 
 	const title = `details of book ${params.bookId}`;
-	const fetchedBooksStrm = await fetch(`http://localhost:4000/books/${params.bookId}`);
-	const fetchedBooks = await fetchedBooksStrm.json();
+	const fetchedBooksStream = await fetch(`http://localhost:4000/books/${params.bookId}`);
+	const fetchedBooks = await fetchedBooksStream.json();
 
 	return { title, book: fetchedBooks, name, notification: 'dynamic page notification' };
 };
 
 //  exactly same can be done with layout.js file and layout.server.js file for server and universal load function
+
+// prerendering dynamic route pages
+export const prerender = true;
+
+// if you do
+// export const prerender = true;
+// then it will prerender the pages that it can crawl build time then, the rest will be serverside rendered
